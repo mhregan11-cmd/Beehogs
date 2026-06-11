@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Rocky Mountain Beehog Institute</title>
+<style>
+  :root{
+    --paper:#f6efdc;
+    --paper-dark:#ece0c4;
+    --ink:#2e2418;
+    --honey:#e2a325;
+    --honey-deep:#b9791a;
+    --hog-pink:#e08a8a;
+    --moss:#5b6e4f;
+    --rule:#c9b896;
+    --display: 'Georgia', 'Iowan Old Style', serif;
+    --body: 'Iowan Old Style', 'Palatino Linotype', Georgia, serif;
+    --mono: 'Courier New', monospace;
+  }
+
+  *{box-sizing:border-box;}
+
+  body{
+    margin:0;
+    background:var(--paper);
+    background-image:
+      radial-gradient(circle at 20% 10%, rgba(226,163,37,0.07), transparent 40%),
+      radial-gradient(circle at 80% 90%, rgba(91,110,79,0.06), transparent 45%);
+    color:var(--ink);
+    font-family:var(--body);
+    line-height:1.6;
+    padding:0 0 4rem;
+  }
+
+  header.masthead{
+    border-bottom:4px double var(--ink);
+    padding:2.2rem 1.5rem 1.4rem;
+    text-align:center;
+    background:var(--paper-dark);
+  }
+
+  .eyebrow{
+    font-family:var(--mono);
+    letter-spacing:0.35em;
+    font-size:0.7rem;
+    text-transform:uppercase;
+    color:var(--honey-deep);
+    margin:0 0 0.6rem;
+  }
+
+  h1.title{
+    font-family:var(--display);
+    font-size:clamp(2.2rem, 6vw, 3.6rem);
+    margin:0;
+    letter-spacing:0.02em;
+  }
+
+  .subtitle{
+    font-style:italic;
+    color:#5a4d3a;
+    margin:0.5rem 0 0;
+    font-size:1.05rem;
+  }
+
+  nav.crossref{
+    text-align:center;
+    margin-top:1rem;
+    font-family:var(--mono);
+    font-size:0.8rem;
+    display:flex;
+    justify-content:center;
+    gap:1.5rem;
+  }
+  nav.crossref a{
+    color:var(--moss);
+    text-decoration:none;
+    border-bottom:1px dotted var(--moss);
+    padding-bottom:1px;
+  }
+  nav.crossref a:hover{ color:var(--honey-deep); border-color:var(--honey-deep); }
+
+  main{
+    max-width:620px;
+    margin:0 auto;
+    padding:0 1.5rem;
+  }
+
+  .intro{
+    margin:2.2rem 0 1.5rem;
+    font-size:1rem;
+  }
+
+  .contact-card{
+    border:1px solid var(--rule);
+    background:rgba(255,253,245,0.55);
+    padding:2rem 1.8rem;
+    margin:2rem 0;
+    position:relative;
+  }
+  .contact-card::before{
+    content:"field office contact";
+    position:absolute;
+    top:-0.8rem;
+    left:1rem;
+    background:var(--paper);
+    padding:0 0.6rem;
+    font-family:var(--mono);
+    font-size:0.7rem;
+    letter-spacing:0.15em;
+    color:var(--honey-deep);
+    text-transform:uppercase;
+  }
+
+  .contact-row{
+    display:flex;
+    align-items:baseline;
+    gap:1rem;
+    padding:0.7rem 0;
+    border-bottom:1px solid var(--rule);
+  }
+  .contact-row:last-child{ border-bottom:none; }
+
+  .contact-label{
+    font-family:var(--mono);
+    font-size:0.7rem;
+    letter-spacing:0.15em;
+    text-transform:uppercase;
+    color:var(--moss);
+    width:90px;
+    flex-shrink:0;
+  }
+
+  .contact-value{
+    font-family:var(--display);
+    font-size:1.15rem;
+  }
+  .contact-value a{
+    color:var(--ink);
+    text-decoration:none;
+    border-bottom:1px solid var(--hog-pink);
+  }
+  .contact-value a:hover{ color:var(--honey-deep); border-color:var(--honey-deep); }
+
+  .hours{
+    font-size:0.95rem;
+    color:#5a4d3a;
+  }
+
+  .stamp{
+    display:inline-block;
+    border:2px solid var(--moss);
+    color:var(--moss);
+    font-family:var(--mono);
+    font-size:0.7rem;
+    letter-spacing:0.2em;
+    text-transform:uppercase;
+    padding:0.3rem 0.7rem;
+    transform:rotate(-3deg);
+    margin-top:0.5rem;
+  }
+
+  footer{
+    max-width:620px;
+    margin:3rem auto 0;
+    padding:0 1.5rem;
+    font-family:var(--mono);
+    font-size:0.75rem;
+    color:#8a7a5e;
+    text-align:center;
+    letter-spacing:0.05em;
+  }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <p class="eyebrow">Rocky Mountain Beehog Institute · Get In Touch</p>
+  <h1 class="title">Contact Us</h1>
+  <p class="subtitle">Sightings, questions, and massage-bite reports welcome</p>
+  <nav class="crossref">
+    <a href="beehog-info.html">Field guide</a>
+    <a href="research-team.html">Research team</a>
+  </nav>
+</header>
+
+<main>
+
+  <p class="intro">
+    Spotted a beehog? Found one that seems "broke"? Just have questions before the season kicks off?
+    Reach out — the team checks messages between field visits and tries to get back to everyone within
+    a few business days (longer during peak Beehog Season, when most of us are out chasing Cloud
+    Beehogs and trying to figure out what that gas is).
+  </p>
+
+  <div class="contact-card">
+    <div class="contact-row">
+      <span class="contact-label">Email</span>
+      <span class="contact-value"><a href="mailto:hello@beehoginstitute.example">hello@beehoginstitute.example</a></span>
+    </div>
+    <div class="contact-row">
+      <span class="contact-label">Phone</span>
+      <span class="contact-value"><a href="tel:+15555550199">(555) 555-0199</a></span>
+    </div>
+    <div class="contact-row">
+      <span class="contact-label">Hours</span>
+      <span class="contact-value hours">Mon–Fri, 9am–4pm MT (subject to field schedules)</span>
+    </div>
+  </div>
+
+  <div class="stamp">RMBI · Front Range Field Office</div>
+
+</main>
+
+<footer>
+  Rocky Mountain Beehog Institute — Contact — Please do not swat at the messenger
+</footer>
+
+</body>
+</html>

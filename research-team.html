@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Research Staff — Rocky Mountain Beehog Institute</title>
+<style>
+  :root{
+    --paper:#f6efdc;
+    --paper-dark:#ece0c4;
+    --ink:#2e2418;
+    --honey:#e2a325;
+    --honey-deep:#b9791a;
+    --hog-pink:#e08a8a;
+    --moss:#5b6e4f;
+    --rule:#c9b896;
+    --display: 'Georgia', 'Iowan Old Style', serif;
+    --body: 'Iowan Old Style', 'Palatino Linotype', Georgia, serif;
+    --mono: 'Courier New', monospace;
+  }
+
+  *{box-sizing:border-box;}
+
+  body{
+    margin:0;
+    background:var(--paper);
+    background-image:
+      radial-gradient(circle at 20% 10%, rgba(226,163,37,0.07), transparent 40%),
+      radial-gradient(circle at 80% 90%, rgba(91,110,79,0.06), transparent 45%);
+    color:var(--ink);
+    font-family:var(--body);
+    line-height:1.6;
+    padding:0 0 4rem;
+  }
+
+  header.masthead{
+    border-bottom:4px double var(--ink);
+    padding:2.2rem 1.5rem 1.4rem;
+    text-align:center;
+    background:var(--paper-dark);
+  }
+
+  .eyebrow{
+    font-family:var(--mono);
+    letter-spacing:0.35em;
+    font-size:0.7rem;
+    text-transform:uppercase;
+    color:var(--honey-deep);
+    margin:0 0 0.6rem;
+  }
+
+  h1.title{
+    font-family:var(--display);
+    font-size:clamp(2.2rem, 6vw, 3.6rem);
+    margin:0;
+    letter-spacing:0.02em;
+  }
+
+  .subtitle{
+    font-style:italic;
+    color:#5a4d3a;
+    margin:0.5rem 0 0;
+    font-size:1.05rem;
+  }
+
+  nav.crossref{
+    text-align:center;
+    margin-top:1rem;
+    font-family:var(--mono);
+    font-size:0.8rem;
+    display:flex;
+    justify-content:center;
+    gap:1.5rem;
+  }
+  nav.crossref a{
+    color:var(--moss);
+    text-decoration:none;
+    border-bottom:1px dotted var(--moss);
+    padding-bottom:1px;
+  }
+  nav.crossref a:hover{ color:var(--honey-deep); border-color:var(--honey-deep); }
+
+  main{
+    max-width:760px;
+    margin:0 auto;
+    padding:0 1.5rem;
+  }
+
+  .intro{
+    margin:2.2rem 0 1rem;
+    font-size:1rem;
+  }
+
+  .roster{
+    margin:2.5rem 0 0;
+  }
+
+  .staff-card{
+    border:1px solid var(--rule);
+    background:rgba(255,253,245,0.55);
+    padding:1.5rem 1.6rem;
+    margin-bottom:1.8rem;
+    display:grid;
+    grid-template-columns:120px 1fr;
+    gap:1.2rem;
+    position:relative;
+  }
+  .staff-card::before{
+    content:attr(data-role);
+    position:absolute;
+    top:-0.8rem;
+    left:1rem;
+    background:var(--paper);
+    padding:0 0.6rem;
+    font-family:var(--mono);
+    font-size:0.7rem;
+    letter-spacing:0.15em;
+    color:var(--honey-deep);
+    text-transform:uppercase;
+  }
+  @media (max-width:520px){
+    .staff-card{ grid-template-columns:1fr; }
+  }
+
+  .badge{
+    width:100%;
+    aspect-ratio:1;
+    border-radius:50%;
+    border:2px solid var(--ink);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:var(--display);
+    font-size:2rem;
+    font-weight:bold;
+    background:var(--paper-dark);
+    color:var(--moss);
+  }
+
+  .staff-name{
+    font-family:var(--display);
+    font-size:1.4rem;
+    margin:0 0 0.1rem;
+  }
+  .staff-title{
+    font-family:var(--mono);
+    font-size:0.75rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--moss);
+    margin:0 0 0.6rem;
+  }
+  .staff-bio{
+    margin:0 0 0.6rem;
+    font-size:0.97rem;
+  }
+  .staff-meta{
+    font-family:var(--mono);
+    font-size:0.78rem;
+    color:#8a7a5e;
+  }
+
+  .org-chart{
+    margin:2.5rem 0;
+    text-align:center;
+  }
+  .org-chart svg{ max-width:100%; height:auto; }
+  .diagram-caption{
+    font-family:var(--mono);
+    font-size:0.75rem;
+    color:#5a4d3a;
+    letter-spacing:0.08em;
+    margin-top:0.6rem;
+  }
+
+  .substitutes{
+    border:1px solid var(--rule);
+    border-style:dashed;
+    padding:1.3rem 1.6rem;
+    margin-top:1rem;
+    background:var(--paper-dark);
+  }
+  .substitutes h2{
+    font-family:var(--display);
+    font-size:1.3rem;
+    margin:0 0 0.6rem;
+    color:var(--moss);
+  }
+  .sub-list{
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.8rem 1.6rem;
+    font-family:var(--mono);
+    font-size:0.85rem;
+    margin:0;
+    padding:0;
+    list-style:none;
+  }
+  .sub-list li::before{
+    content:"— ";
+    color:var(--honey-deep);
+  }
+
+  .stamp{
+    display:inline-block;
+    border:2px solid var(--moss);
+    color:var(--moss);
+    font-family:var(--mono);
+    font-size:0.7rem;
+    letter-spacing:0.2em;
+    text-transform:uppercase;
+    padding:0.3rem 0.7rem;
+    transform:rotate(-3deg);
+    margin-top:1.5rem;
+  }
+
+  footer{
+    max-width:760px;
+    margin:3rem auto 0;
+    padding:0 1.5rem;
+    font-family:var(--mono);
+    font-size:0.75rem;
+    color:#8a7a5e;
+    text-align:center;
+    letter-spacing:0.05em;
+  }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <p class="eyebrow">Rocky Mountain Beehog Institute · Staff Directory</p>
+  <h1 class="title">The Research Team</h1>
+  <p class="subtitle">Colorado's only dedicated beehog research unit</p>
+  <nav class="crossref">
+    <a href="beehog-info.html">Back to the field guide</a>
+    <a href="contact.html">Contact us</a>
+  </nav>
+</header>
+
+<main>
+
+  <p class="intro">
+    The Institute operates out of a small fleet of field stations across the Front Range — chosen,
+    according to internal records, for "good light, good crumbs, and minimal swatting." The core team
+    has logged a combined total of <em>"a lot"</em> of beehog-hours, and remains the closest thing the
+    species has to dedicated representation.
+  </p>
+
+  <div class="roster">
+
+    <div class="staff-card" data-role="taxonomy &amp; ID">
+      <div class="badge">M</div>
+      <div>
+        <h3 class="staff-name">Madison</h3>
+        <p class="staff-title">Species &amp; Subspecies Specialist</p>
+        <p class="staff-bio">
+          The first call when a new beehog shows up and nobody can agree what kind it is. Madison can
+          reportedly identify a Cloud Beehog from a Tree Hog at forty paces, in fog, and has never once
+          been wrong about a Pointy/Stuffed Beehog — though she admits "Internet Beehogs all kind of
+          look the same."
+        </p>
+        <p class="staff-meta">Field office: Colorado · Status: on-call during peak season</p>
+      </div>
+    </div>
+
+    <div class="staff-card" data-role="veterinary care">
+      <div class="badge">X</div>
+      <div>
+        <h3 class="staff-name">Max</h3>
+        <p class="staff-title">Staff Veterinarian</p>
+        <p class="staff-bio">
+          Handles anything "broke" — a slightly bent wing, a stuck stinger, a beehog that's
+          "just having a day." Known for a gentle bedside manner and an unusually high success rate
+          with Cloud Beehogs, who Max describes as "good patients, very chill, smell faintly of
+          ozone."
+        </p>
+        <p class="staff-meta">Field office: Colorado · Status: on standby for emergencies</p>
+      </div>
+    </div>
+
+    <div class="staff-card" data-role="field operations">
+      <div class="badge">C</div>
+      <div>
+        <h3 class="staff-name">Crew</h3>
+        <p class="staff-title">Field Biologist</p>
+        <p class="staff-bio">
+          Spends most of the season out in beehog territory, tracking nesting patterns and confirming
+          new sightings. Crew is responsible for most of what's currently known about beehog family
+          units, monogamous pairings, and the ongoing mystery of what exactly Cloud Beehogs are
+          emitting. ("Still unknown. Still studying it.")
+        </p>
+        <p class="staff-meta">Field office: Colorado · Status: in the field most of the season</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="org-chart">
+    <svg viewBox="0 0 600 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Org chart showing Madison, Max and Crew at the top, with Porter, Jenny and Riley as substitute field techs below">
+      <!-- top tier boxes -->
+      <rect x="40"  y="20" width="150" height="50" rx="4" fill="#f3d27a" stroke="#2e2418" stroke-width="2"/>
+      <rect x="225" y="20" width="150" height="50" rx="4" fill="#f3d27a" stroke="#2e2418" stroke-width="2"/>
+      <rect x="410" y="20" width="150" height="50" rx="4" fill="#f3d27a" stroke="#2e2418" stroke-width="2"/>
+      <text x="115" y="50" text-anchor="middle" font-family="Georgia, serif" font-size="16" fill="#2e2418">Madison</text>
+      <text x="300" y="50" text-anchor="middle" font-family="Georgia, serif" font-size="16" fill="#2e2418">Max</text>
+      <text x="485" y="50" text-anchor="middle" font-family="Georgia, serif" font-size="16" fill="#2e2418">Crew</text>
+
+      <!-- connectors -->
+      <line x1="300" y1="70" x2="300" y2="100" stroke="#2e2418" stroke-width="2"/>
+      <line x1="115" y1="100" x2="485" y2="100" stroke="#2e2418" stroke-width="2"/>
+      <line x1="115" y1="100" x2="115" y2="120" stroke="#2e2418" stroke-width="2"/>
+      <line x1="300" y1="100" x2="300" y2="120" stroke="#2e2418" stroke-width="2"/>
+      <line x1="485" y1="100" x2="485" y2="120" stroke="#2e2418" stroke-width="2"/>
+
+      <!-- bottom tier boxes -->
+      <rect x="40"  y="120" width="150" height="50" rx="4" fill="#f3c9d6" stroke="#2e2418" stroke-width="2"/>
+      <rect x="225" y="120" width="150" height="50" rx="4" fill="#f3c9d6" stroke="#2e2418" stroke-width="2"/>
+      <rect x="410" y="120" width="150" height="50" rx="4" fill="#f3c9d6" stroke="#2e2418" stroke-width="2"/>
+      <text x="115" y="150" text-anchor="middle" font-family="Georgia, serif" font-size="16" fill="#2e2418">Porter</text>
+      <text x="300" y="150" text-anchor="middle" font-family="Georgia, serif" font-size="16" fill="#2e2418">Jenny</text>
+      <text x="485" y="150" text-anchor="middle" font-family="Georgia, serif" font-size="16" fill="#2e2418">Riley</text>
+
+      <text x="300" y="205" text-anchor="middle" font-family="Courier New, monospace" font-size="11" fill="#5a4d3a">SUBSTITUTE FIELD TECHS — STEP IN AS NEEDED</text>
+    </svg>
+    <p class="diagram-caption">FIG. 2 — INSTITUTE STAFF STRUCTURE</p>
+  </div>
+
+  <div class="substitutes">
+    <h2>On-Call Substitutes</h2>
+    <p style="margin-top:0; font-size:0.95rem;">
+      When the core team is stretched thin during peak Beehog Season, the following field techs
+      rotate in to cover sightings, basic ID, and the occasional massage-bite incident report.
+    </p>
+    <ul class="sub-list">
+      <li>Porter</li>
+      <li>Jenny</li>
+      <li>Riley</li>
+    </ul>
+  </div>
+
+  <div class="stamp">All staff verified · RMBI</div>
+
+</main>
+
+<footer>
+  Rocky Mountain Beehog Institute — Staff Directory — "Mostly Colorado." — internal motto, unofficial
+</footer>
+
+</body>
+</html>
